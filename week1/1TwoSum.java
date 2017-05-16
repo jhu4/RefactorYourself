@@ -1,7 +1,7 @@
 import java.util.*;
 public class TwoSumSolution {
     //My solution
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSum1(int[] nums, int target) {
         Hashtable<Integer, Integer> map = new Hashtable<Integer,Integer>();
         int[] result= new int[2];
         for(int i=0;i<nums.length;i++){
@@ -16,7 +16,7 @@ public class TwoSumSolution {
     }
     
     //Other's solution that is similar
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSum2(int[] numbers, int target) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (int i = 0; i < numbers.length; i++) {
             if (map.containsKey(numbers[i])) {

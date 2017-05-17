@@ -1,4 +1,4 @@
-public class Solution {
+public class PalindromNumberSolution {
     //My solution
     public boolean isPalindrome1(int x) {
         if(x<0) return false;

@@ -38,4 +38,27 @@ public class LetterCombinationsOfAPhoneNumberSolution {
         }
         return ans;
     }
+    
+    //An intinerary solution
+    public List<String> letterCombinations2(String digits) {
+        String[] data = new String[] { " ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        List<String> res = new ArrayList<String>();
+        for (int i = 0; i < digits.length(); i++) {
+            char[] letters = data[digits.charAt(i) - '0'].toCharArray();
+
+            List<String> sub = new ArrayList<String>();
+            if (res.isEmpty()) {
+                res.add("");
+            }
+            for (String s : res) {
+                for (int j = 0; j < letters.length; j++) {
+                    sub.add(s + letters[j]);
+                }
+            }
+            res = sub;
+
+        }
+        return res;
+    }
+}
 }

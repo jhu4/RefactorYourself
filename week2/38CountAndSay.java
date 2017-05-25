@@ -19,11 +19,11 @@ public class Solution {
     }
 
     //Recursive solution...Frankly this is faster than itinerary solution
-    public String countAndSay(int n) {
+    public String countAndSay2(int n) {
         if(n==1){
             return "1";
         }else{
-            String prev = countAndSay(n-1); 
+            String prev = countAndSay2(n-1); 
             StringBuilder sb = new StringBuilder();
             int i = 0;
             for(int j = 1; j <= prev.length(); j++){

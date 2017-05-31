@@ -1,5 +1,5 @@
 import java.lang.Math;
-public class Solution {
+public class ValidSudokuSolution {
     //My initial solution
     public boolean isValidSudoku(char[][] board){
         boolean[][] x=new boolean[board.length][board.length];

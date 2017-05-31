@@ -1,4 +1,5 @@
 public class SearchInRotatedSortedArraySolution {
+    //The entire search can be performed in one binary search
     public int search2(int[] nums, int target) {
         if(nums==null || nums.length==0) return -1;
         

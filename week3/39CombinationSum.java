@@ -2,7 +2,7 @@ public class CombinationSumSolution {
     //Recursive solution
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> list=new ArrayList<>();
-        Arrays.sort(candidates);
+        Arrays.sort(candidates); //we can sort here or not, if not we need to remove left>=candidates[i] condition in the 14th line
         combinationSum(list,new ArrayList<>(),candidates,0,target);
         return list;
     }

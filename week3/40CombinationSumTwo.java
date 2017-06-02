@@ -15,7 +15,7 @@ public class CombinationSumTwoSolution {
         else if(left<0 || start>candidates.length) return;
         else{
             for(int i=start;i<candidates.length && candidates[i]<=left;i++){ //pruning
-                if(i==start||candidates[i]!=candidates[i-1]){ //can not put duplicate elements on the same index in the list
+                if(i==start||candidates[i]!=candidates[i-1]){ //when creating the children recursion, each number can only be used once
                     cur.add(candidates[i]);
                     combinationSumTwo(list,cur,left-candidates[i],i+1,candidates);
                     cur.remove(cur.size()-1);

@@ -8,6 +8,7 @@
  * }
  */
 public class SymmetricTreeSolution {
+    //Recursive solution
     public boolean isSymmetric(TreeNode root) {
         if(root==null) return true;
         

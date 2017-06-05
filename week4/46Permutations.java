@@ -12,7 +12,7 @@ public class Solution {
         List<List<Integer>> recur=permute(Arrays.copyOfRange(nums,1,nums.length));
         
         int recurSize=recur.size();
-        for(int i=0;i<recurSize;i++){
+        for(int i=0;i<recurSize;i++){ 
             List<Integer> cur=recur.get(i);
             for(int j=0;j<cur.size();j++){
                 List<Integer> clone=new ArrayList<>(cur);
@@ -35,11 +35,11 @@ public class Solution {
             return res;
         }
         
-        for(int i=1;i<nums.length;i++){
+        for(int i=1;i<nums.length;i++){ //start with one because empty ArrayList is really hard to deal with
             int size=res.size(); //remember the size is changing so we have to extract the size before the condition
-            for(int j=0;j<size;j++){
+            for(int j=0;j<size;j++){ //j represents the jth list in the list
                 List<Integer> cur=res.get(j);
-                for(int k=0;k<cur.size();k++){
+                for(int k=0;k<cur.size();k++){ //k represents the kth element in the list
                     List<Integer> clone=new ArrayList<Integer>(cur);
                     clone.add(k,nums[i]);
                     res.add(clone);

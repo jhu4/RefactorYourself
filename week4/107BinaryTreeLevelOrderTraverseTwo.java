@@ -35,4 +35,28 @@ public class BinaryTreeLevelOrderTraverseTwoSolution {
         }
         return res;
     }
+    
+    //Or can use the size of the queue to determine the boundary of a layer
+    public List<List<Integer>> levelOrderBottom2(TreeNode root) {
+        List<List<Integer>> res=new ArrayList<>();
+        if(root==null) return res;
+        
+        Queue<TreeNode> q=new LinkedList<>();
+        q.offer(root);
+        
+        
+        while(!q.isEmpty()){
+            int size=q.size();
+            List<Integer> curList=new ArrayList<>();
+            TreeNode curNode;
+            for(int i=0;i<size;i++){
+                curNode=q.poll();
+                if(curNode.left!=null) q.offer(curNode.left);
+                if(curNode.right!=null) q.offer(curNode.right);
+                curList.add(curNode.val);
+            }
+            res.add(0,curList);
+        }
+        return res;
+    }
 }

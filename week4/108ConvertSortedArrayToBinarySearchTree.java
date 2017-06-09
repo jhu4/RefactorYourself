@@ -8,6 +8,7 @@
  * }
  */
 public class ConvertSortedArrayToBinarySearchTreeSolution {
+    //My initial recursion solution
     public TreeNode sortedArrayToBST(int[] nums) {
         TreeNode res;
         if(nums==null||nums.length==0) return null;

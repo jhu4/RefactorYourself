@@ -8,8 +8,43 @@
  * }
  */
 public class Solution {
+    //it turn out merge1 TLE becasue I used list.remove which is O(n) operation
+    //Same idea, instead of manipulating in the original list we add the qualified one to the new list
+    public List<Interval> merge2(List<Interval> intervals) {
+        List<Interval> res=new ArrayList<>();
+        if(intervals==null||intervals.size()==0) return res;
+        
+        Collections.sort(intervals,new Comparator<Interval>(){ //sorting the intervals
+            @Override
+            public int compare(Interval a,Interval b){
+                if(a.start>b.start) return 1;
+                else if(a.start==b.start) return 0;
+                else return -1;
+            }
+        });
+        
+        int count=0;
+        res.add(intervals.get(0));
+        
+        for(int i=1;i<intervals.size();i++){
+            Interval pre=res.get(count);
+            Interval cur=intervals.get(i);
+            if(cur.start<=pre.end){ //case where we need to merge
+                if(cur.end>pre.end) //merge only if intervals are partially overlapped, ignore if one interval
+                    pre.end=cur.end;//is contained within another
+            }
+            else{
+                res.add(cur);//if the current interval are totally seperate, add it to the result
+                count++;
+            }
+            
+        }
+        
+        return res;
+    }
+    
     //My initial TLE solution
-    public List<Interval> merge(List<Interval> intervals) {
+    public List<Interval> merge1(List<Interval> intervals) {
         if(intervals==null||intervals.size()==0) return new ArrayList<>();
         
         Collections.sort(intervals,new Comparator<Interval>(){ //sort the list

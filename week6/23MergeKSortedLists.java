@@ -53,8 +53,8 @@ public class MergeKSortedListsSolution {
         if(start >= end) return;
         ListNode temp;
         int min = start;
-        int left = leftChild(start);
-        int right = rightChild(start);
+        int left = 2 * start;
+        int right = 2 * start + 1;
         
         if(left <= end && heap[left].val < heap[min].val) {
             min = left;
@@ -69,17 +69,5 @@ public class MergeKSortedListsSolution {
             heap[min] = temp;
             heapify(heap, min, end); //heapify the remaining only if we swap elements
         }
-    }
-    
-    private int leftChild(int index) {
-        return 2 * index;
-    }
-    
-    private int rightChild(int index) {
-        return 2 * index + 1;
-    }
-    
-    private int parent(int index) {
-        return index / 2;
     }
 }

@@ -27,7 +27,7 @@ public class TopKFrequentElementsSolution {
     }
     
     //Solition using priority queue
-    public List<Integer> topKFrequent(int[] nums, int k) {
+    public List<Integer> topKFrequent2(int[] nums, int k) {
         Map<Integer, Integer> counterMap = new HashMap<>();
         for(int num : nums) {
             int count = counterMap.getOrDefault(num, 0);

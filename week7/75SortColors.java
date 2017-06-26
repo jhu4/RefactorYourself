@@ -1,5 +1,5 @@
 public class SortColorsSolution {
-    //My solution based on counting sort
+    //This is actually bucket sort
     public void sortColors(int[] nums) {
         if(nums == null || nums.length <= 1) return;
         

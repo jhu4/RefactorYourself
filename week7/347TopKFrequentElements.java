@@ -34,15 +34,15 @@ public class TopKFrequentElementsSolution {
             counterMap.put(num, count+1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue()-b.getValue());
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue()-a.getValue());
+        //priority queue is a min heap so we need to reverse comparing process in the the comparator
         for(Map.Entry<Integer, Integer> entry : counterMap.entrySet()) {
             pq.offer(entry);
-            if(pq.size() > k) pq.poll();
         }
-
+        
         List<Integer> res = new LinkedList<>();
-        while(!pq.isEmpty()) {
-            res.add(0, pq.poll().getKey());
+        while(k-- > 0) {
+            res.add(pq.poll().getKey());
         }
         return res;
     }

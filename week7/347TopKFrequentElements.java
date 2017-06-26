@@ -1,5 +1,6 @@
 public class TopKFrequentElementsSolution {
-    public List<Integer> topKFrequent(int[] nums, int k) {
+    //O(n) solution using map and bucket sort
+    public List<Integer> topKFrequent1(int[] nums, int k) {
         List<Integer> res = new ArrayList<>();
         List<Integer>[] bucket = new List[nums.length + 1]; //we use a list because they might be more than one elements having
         Map<Integer, Integer> freq = new HashMap<>();   //having the same frequency

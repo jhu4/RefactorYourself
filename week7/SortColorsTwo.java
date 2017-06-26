@@ -4,6 +4,7 @@ class SortColorsTwoSolution {
      * @param k: An integer
      * @return: nothing
      */
+    //This is actually based on bucket sort
     public void sortColors2(int[] colors, int k) {
         if(colors == null || colors.length <= 1) return;
         

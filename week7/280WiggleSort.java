@@ -1,4 +1,4 @@
-public class Solution {
+public class WiggleSortSolution { //also can find it in Lintcode
     /**
      * @param nums a list of integer
      * @return void

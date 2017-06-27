@@ -13,11 +13,8 @@ public class Solution {
         int left = 1;
         int right;
         int temp;
-        if(nums.length % 2 == 0) {
+        if(nums.length % 2 == 0) { //even elements v.s. odd elements
             right = nums.length - 2;
-            temp = nums[nums.length - 1]; //swapped the start of the larger part with the end of the larger part
-            nums[nums.length - 1] = nums[nums.length / 2]; //to prevent from duplicate numbers crossing the two part
-            nums[nums.length / 2] = temp;
         }
         else {
             right =  nums.length - 1;    

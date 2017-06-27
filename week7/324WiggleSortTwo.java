@@ -6,7 +6,8 @@ public class WiggleSortTwoSolution {
        Attention: it doesn't work reversly
                     odd:  L  L  L  M  M  M  M
                     even:  M  M  M  S  S  S  S
-       There is an O(n) solution but it is too hard to explain https://discuss.leetcode.com/topic/41464/step-by-step-explanation-of-index-mapping-in-java
+       There is an O(n) solution but it is too hard to explain 
+       https://discuss.leetcode.com/topic/41464/step-by-step-explanation-of-index-mapping-in-java
     **/
     public void wiggleSortTwo(int[] nums) {
         if(nums == null && nums.length <=1) return;

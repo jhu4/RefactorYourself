@@ -36,7 +36,7 @@ public class Solution {
   }
 
   public int size() {
-    return offering.size() + storing.size();
+    return offering.size() + storing.size(); //Stack<> implements List<>
   }
 
   public boolean isEmpty() {

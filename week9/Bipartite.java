@@ -6,8 +6,8 @@ public boolean isBipartite(List<GraphNode> graph) {
   HashMap<GraphNode, Information> map = new HashMap<>();
 
   for(GraphNode gn : graph) { //outer loop: find the access node in different clouds
-    if(gn.neighbors.size() == 0 || map.get(gn) != null) { //we don't care about those independent nodes or nodes in the clouds we visited before
-      continue;
+    if(gn.neighbors.size() == 0 || map.get(gn) != null) { //we don't care about those independent nodes 
+      continue;                                         //or nodes in the clouds we visited before
     }
 
     if(!isBipartiteCloud(map, gn)) {
@@ -30,21 +30,22 @@ private boolean isBipartiteCloud(HashMap<GraphNode, Information> map, GraphNode 
 
     for(GraphNode neighbor : cur.neighbors) { //check if all neighbors are in the other group
       Information neighborInfo = map.get(neighbor);
+      int curGroup = map.get(cur).group;
 
       if(neighborInfo == null) { // this node is never explored before
-        map.put(neighbor, new Information(map.get(cur).group == 1 ? 2 : 1)); // we simply put this node to the other group
+        map.put(neighbor, new Information(curGroup == 1 ? 2 : 1)); // we simply put this node to the other group
       }
       else{ //if we explored this node before, this node must have a group, we check whether they are in different groups
-        if(map.get(neighbor).group == map.get(cur).group) {
+        if(neighborInfo.group == curGroup) {
           return false;
         }
       }
-
-      if(!map.get(neighbor).expanded) { //if this node hasn't been expanded, we put it into the queue
+      
+      //if this node hasn't been expanded, we put it into the queue
+      if(!map.get(neighbor).expanded) { //note: has to be map.get(neighbor) because neighborInfo could be null
         q.offer(neighbor);
       }
     }
-
   }
 
   return true;

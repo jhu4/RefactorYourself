@@ -1,4 +1,23 @@
-public int longest(String input) {
+//a better one
+public int longest1(String input) {
+  Set<Character> hs = new HashSet<>();
+  int longest = Integer.MIN_VALUE;
+  int slow = 0, fast = 0;
+
+
+  while (fast < input.length()) {
+    if (hs.contains(input.charAt(fast))) {
+      hs.remove(input.charAt(slow++));
+    } else {
+      hs.add(input.charAt(fast++));
+      longest = Math.max(longest, fast - slow);
+    }
+  }
+  return longest;
+}
+
+//Not so good one
+public int longest2(String input) {
   Map<Character, Integer> map = new HashMap<>();
   int startIndex = 0;
   int max = Integer.MIN_VALUE;

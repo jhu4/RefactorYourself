@@ -18,6 +18,7 @@ public boolean canBreak(String input, String[] dict) {
     for (int j = 0; j < i; j++) {
       if (canBreak[j] && hs.contains(input.substring(j + 1, i + 1))) {
         canBreak[i] = true;
+        break;
       }
     }
   }
